@@ -1,0 +1,36 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model NimapInfotech.Models.Product
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+<form asp-action="Create">
+    <table>
+        <tr>
+            <td>Enter Product Name</td>
+            <td>
+                @Html.EditorFor(Model=>Model.ProductName,new{HtmlAttributes=new{@class="form-control"}})
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Select Category
+            </td>
+            <td>
+                <select class="form-control" asp-for="CategoryId" asp-items="@(new SelectList(@ViewBag.CatList,"CategoryID","CategoryName"))"></select>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" value="Add Product" class="btn btn-primary" />
+            </td>
+        </tr>
+    </table>
+</form>

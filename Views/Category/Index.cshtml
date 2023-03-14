@@ -1,0 +1,28 @@
+﻿
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model List<NimapInfotech.Models.Category>
+<h2>List of All Category</h2>
+<a href="@Url.Action("Create","Category")" class="btn btn-primary">Add Categoryt</a>
+<table class="table table-bordered table-striped table-hover">
+    <tr>
+        <th>Category Id</th>
+        <th>Category Name</th>
+        <th>Actions</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>@item.CategoryID</td>
+    <td>@item.CategoryName</td>
+    <td>
+                <a href="@Url.Action("Edit","Category",new {@id=item.CategoryID})" class="btn btn-warning">Edit</a>
+                <a href="@Url.Action("Delete","Category",new {@id=item.CategoryID})" class="btn btn-danger">Delete</a>
+    </td>
+</tr>}
+
+</table>

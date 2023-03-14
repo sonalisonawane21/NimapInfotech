@@ -1,0 +1,21 @@
+﻿@model NimapInfotech.Models.Category
+
+@{
+    ViewBag.Title = "Create";
+}
+<h2>Add Category</h2>
+<form asp-action="Create">
+        <table class="table">
+            <tr>
+                <td>Enter Category Name</td>
+                <td>@Html.EditorFor(Model=>Model.CategoryName,new{HtmlAttributes=new{@class="form-control"}})</td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="Add Product" class="btn-primary btn-success text-center"/>
+
+                </td>
+            </tr>
+
+        </table>
+</form>

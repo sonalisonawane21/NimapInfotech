@@ -1,0 +1,37 @@
+﻿@model NimapInfotech.Models.Product
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit Product</h1>
+<form asp-action="Edit">
+    <table>
+        <tr>
+            <td></td>
+            <td>
+                @Html.HiddenFor(Model=>Model.ProductId)
+            </td>
+        </tr>
+        <tr>
+            <td>Enter Product Name</td>
+            <td>
+                @Html.EditorFor(Model=>Model.ProductName,new{HtmlAttributes=new{@class="form-control"}})
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Select Category
+            </td>
+            <td>
+                <select class="form-control" asp-for="CategoryId" asp-items="@(new SelectList(@ViewBag.CatList,"CategoryID","CategoryName"))"></select>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" value="Update Product" class="btn btn-primary" />
+            </td>
+        </tr>
+    </table>
+</form>
+
